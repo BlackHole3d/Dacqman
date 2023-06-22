@@ -2098,3 +2098,10 @@ audioFdbkEmitter.on('audioFdbk:playingSoundForChanNum', function(data){
     multiWfs[data.chanNum - 1].ShowPlayingSound(data.timeoutMs);
   }
 });
+
+ipcRenderer.on('updateReady', () => {
+  // Display your notification window here.
+
+  // When the user chooses to restart the app, send an event back to the main process.
+  ipcRenderer.send('restartApp');
+});

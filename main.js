@@ -8,11 +8,9 @@ const SettingsStorage = require('./settingsStorage.js');
 const { ipcRenderer } = require('electron');
 
 
-const {app, BrowserWindow, Menu, ipcMain} = electron;
+const {app, BrowserWindow, Menu, ipcMain, } = electron;
 
 const { autoUpdater } = require('electron-updater');
-
-autoUpdater.checkForUpdatesAndNotify();
 
 
 // SET ENV
@@ -145,7 +143,12 @@ app.on('ready', function(){
   // Insert menu
   Menu.setApplicationMenu(mainMenu);
 
+  autoUpdater.checkForUpdatesAndNotify();
 }); // end of app.on ready
+  
+autoUpdater.on('update-downloaded', (info) => {
+  win.webContents.send('updateReady');
+});
 
 // Handle File Thing 1 create add Window
 function createAddWindow(){
