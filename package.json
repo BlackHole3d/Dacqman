@@ -3,18 +3,48 @@
   "version": "0.0.18",
   "description": "Data Acquisition and Management Tool (Demo/R&D) especially for OshaBlue LLC Ultrasonic NDT scanning hardware (HDL-0108-RSCPT, RS104, DL-Series)",
   "main": "main.js",
-  "repository": "https://github.com/Harryd73/Dacqman.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Harryd73/Dacqman.git"
+  },
+  "build": {
+    "appId": "com.bsisentry.dacqman",
+    "directories": {
+      "output": "release-builds"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Harryd73",
+        "repo": "Dacqman"
+      }
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icons/mac/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/win/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icons/png/icon.png"
+    }
+  },
   "scripts": {
     "start": "electron .",
     "install-bak": "npm run -s rebuild-ftdi & npm run -s rebuild-serialport",
     "rebuild-ftdi": "electron-rebuild --only ftdi",
     "rebuild-serialport": "electron-rebuild -o serialport",
-    "build-packed-mac": "electron-builder --mac --x64 --dir --asar.unpack=plugins --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds --publish never",
-    "build-packed-win": "electron-builder --win --x64 --dir --asar.unpack=plugins --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --win.companyName=CE --win.fileDescription=CE --win.productName=\"DacqMan\" --publish never",
-    "build-packed-linux": "electron-builder --linux --x64 --dir --asar --icon=assets/icons/png/icon.png --prune=true --out=release-builds --publish never",
-    "build-unpacked-mac": "electron-builder --mac --x64 --dir --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds --publish never",
-    "build-unpacked-win": "electron-builder --win --x64 --dir --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --win.companyName=CE --win.fileDescription=CE --win.productName=\"DacqMan\" --publish never",
-    "build": "electron-builder build --win --publish never",
+    "build-packed-mac": "electron-builder --mac --x64",
+    "build-packed-win": "electron-builder --win --x64",
+    "build-packed-linux": "electron-builder --linux --x64",
+    "deploy-packed-mac": "electron-builder --mac --x64 --publish always",
+    "deploy-packed-win": "electron-builder --win --x64 --publish always",
+    "deploy-packed-linux": "electron-builder --linux --x64 --publish always",
+    "build-unpacked-mac": "electron-builder --mac --x64 --dir",
+    "build-unpacked-win": "electron-builder --win --x64 --dir",
     "test": "mocha",
     "test:all": "mocha -R mocha-jenkins-reporter --timeout 20000 \"./src/test/**/*test-*.js\"",
     "test:one": "mocha --watch -u bdd \"./src/test/**/test-*.js\" --grep \"test-store\""
