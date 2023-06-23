@@ -11,6 +11,7 @@ const { ipcRenderer } = require('electron');
 const {app, BrowserWindow, Menu, ipcMain, } = electron;
 
 const { autoUpdater } = require('electron-updater');
+const { dialog } = require('electron')
 log = require("electron-log")
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = "info"
