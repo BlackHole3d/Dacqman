@@ -558,12 +558,16 @@ autoUpdater.on('update-downloaded', (info) => {
     title: 'Update available',
     message: 'An update is available, do you want to restart now?',
     buttons: ['Restart', 'Later']
-  }, (response) => {
-    console.log('Response:', response)
-    if (response === 0) {
-      console.log('Restarting...')
+  })
+  .then((response) => {
+    console.log('Response:', response); // See what response you get
+    if (response.response === 0) {
+      console.log('Restarting...'); // See if this part of the code is being executed
       autoUpdater.quitAndInstall();
     }
+  })
+  .catch(error => {
+    console.error('Error in showMessageBox:', error);
   });
 });
 
