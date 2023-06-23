@@ -559,7 +559,9 @@ autoUpdater.on('update-downloaded', (info) => {
     message: 'An update is available, do you want to restart now?',
     buttons: ['Restart', 'Later']
   }, (response) => {
+    console.log('Response:', response)
     if (response === 0) {
+      console.log('Restarting...')
       autoUpdater.quitAndInstall();
     }
   });
