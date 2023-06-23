@@ -11,7 +11,8 @@ const { ipcRenderer } = require('electron');
 const {app, BrowserWindow, Menu, ipcMain, } = electron;
 
 const { autoUpdater } = require('electron-updater');
-
+autoUpdater.logger = require("electron-log")
+log.info('App starting...');
 
 // SET ENV
 process.env.NODE_ENV = 'development';//'production'; // lose the devtools etc.
@@ -561,7 +562,6 @@ autoUpdater.on('update-downloaded', (info) => {
   });
 });
 
-autoUpdater.logger = require("electron-log")
 autoUpdater.logger.transports.file.level = "info"
 
 // module.exports = {
