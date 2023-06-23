@@ -5,10 +5,10 @@
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Harryd73/Dacqman.git"
+    "url": "https://github.com/hdyork/Dacqman.git"
   },
   "build": {
-    "appId": "com.Harryd73.Dacqman",
+    "appId": "com.hdyork.Dacqman",
     "directories": {
       "output": "release-builds"
     },
