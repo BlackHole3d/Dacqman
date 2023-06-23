@@ -147,6 +147,7 @@ app.on('ready', function(){
   // Insert menu
   Menu.setApplicationMenu(mainMenu);
 
+  autoUpdater.autoInstallOnAppQuit = false;
   autoUpdater.checkForUpdatesAndNotify();
 }); // end of app.on ready
   
