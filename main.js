@@ -561,6 +561,9 @@ autoUpdater.on('update-downloaded', (info) => {
   });
 });
 
+autoUpdater.logger = require("electron-log")
+autoUpdater.logger.transports.file.level = "info"
+
 // module.exports = {
 //     GraphWindowEmitter
 // };
