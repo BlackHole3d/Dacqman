@@ -150,7 +150,7 @@ app.on('ready', function(){
 }); // end of app.on ready
   
 autoUpdater.on('update-downloaded', (info) => {
-  win.webContents.send('updateReady');
+  mainWindow.webContents.send('updateReady');
 });
 
 // Handle File Thing 1 create add Window
