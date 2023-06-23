@@ -44,7 +44,7 @@
     "build-packed-win": "electron-builder --win --x64",
     "build-packed-linux": "electron-builder --linux --x64",
     "deploy-packed-mac": "electron-builder --mac --x64 --publish always",
-    "deploy-packed-win": "electron-builder -- win --x64 --publish always",
+    "deploy-packed-win": "electron-builder  build -- win --x64 --publish always",
     "deploy-packed-linux": "electron-builder --linux --x64 --publish always",
     "build-unpacked-mac": "electron-builder --mac --x64 --dir",
     "build-unpacked-win": "electron-builder --win --x64 --dir",
