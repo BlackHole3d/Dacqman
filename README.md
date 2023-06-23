@@ -75,6 +75,8 @@ Seems to still rebuild/install ok on darwin and win32.
 
 ### Revisions
 
+- **0.0.19**
+  - 
 - **0.0.18** 
   - merged UpdateSerialPort branch to master with bumps of several packages to engine node 12.8.1 electron 7.3.3 serialport 10.5.0 using alternate ftdi-d2xx (wrapped) etc etc - see package.json changes
   - add draft of popout separate (child) window for the multi-waveform graphs - works for various orders of operations and both "Regular" and DCF-UIs
