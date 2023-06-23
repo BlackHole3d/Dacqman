@@ -12,6 +12,7 @@ const {app, BrowserWindow, Menu, ipcMain, } = electron;
 
 const { autoUpdater } = require('electron-updater');
 autoUpdater.logger = require("electron-log")
+autoUpdater.logger.transports.file.level = "info"
 log.info('App starting...');
 
 // SET ENV
@@ -561,8 +562,6 @@ autoUpdater.on('update-downloaded', (info) => {
     }
   });
 });
-
-autoUpdater.logger.transports.file.level = "info"
 
 // module.exports = {
 //     GraphWindowEmitter
